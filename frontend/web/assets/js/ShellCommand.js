@@ -265,7 +265,7 @@ function drawData(data) {
 	}
 		
 	
-	$.post("/golang",
+	$.post("http://172.21.73.144:9090",
 	postdata,
 	function(data,status){
 		var scores = []; 
@@ -323,7 +323,7 @@ function GetLogInfo(days){
 		}
 
 
-		$.post("/golang",
+		$.post("http://172.21.73.144:9090",
 		postdata,
 		function(data,status){
 			if(data !== undefined){
@@ -491,7 +491,7 @@ function SendCommand(sub){
 		}
 			
 
-		$.post("/golang",
+		$.post("http://172.21.73.144:9090",
 		postdata,
 		function(data,status){
 			var scores = []; 
@@ -676,7 +676,7 @@ function SetDeviceName(id, devicevalue){
 		devicename: devicevalue,
 		submit: "SetDeviceName"
 	}
-	$.post("/golang",
+	$.post("http://172.21.73.144:9090",
 	postdata,
 	function(data,status){
 			GetAllDevices();
@@ -704,7 +704,7 @@ function AddNewDevice(){
 			deviceid: document.getElementById("txtDeviceName").value,
 			submit: "GetDeviceId"
 		}
-		$.post("/golang",
+		$.post("http://172.21.73.144:9090",
 		postdata,
 		function(data,status){
 			document.getElementById("result").innerHTML = "";
@@ -739,7 +739,7 @@ function AddNewDevice(){
 			subscribe: subscribe,
 			submit: "SetSubscribeDevices"
 		}
-		$.post("/golang",
+		$.post("http://172.21.73.144:9090",
 		postdata,
 		function(data,status){
 			if (data === "success"){
@@ -763,7 +763,7 @@ function Unsubscribe(topic){
 		unsubscribe: unsubscribe,
 		submit: "UnsubscribeDevices"
 	}
-		$.post("/golang",
+		$.post("http://172.21.73.144:9090",
 		postdata,
 		function(data,status){
 			if (data === "success"){
@@ -862,7 +862,7 @@ function GetAllDevices() {
 		}
 
 		console.log("deviceid:");
-		$.post("/golang",
+		$.post("http://172.21.73.144:9090",
 		postdata,
 		function(data,status){
 			var table = $('#dataTables-example').DataTable();
@@ -928,7 +928,7 @@ function AddToGroup(){
 		name: getCookie("UserName"),
 		submit: "GetGroupInfo"
 	}
-	$.post("/golang",
+	$.post("http://172.21.73.144:9090",
 	postdata,
 	function(data,status){
 		var Title = "Set device group"
@@ -1038,7 +1038,7 @@ function DeleteGroup(){
 		// groupname: "test01",
 		// submit: "DeleteGroup"
 	// }
-	// $.post("/golang",
+	// $.post("http://172.21.73.144:9090",
 	// postdata,
 	// function(data,status){
 	
@@ -1051,7 +1051,7 @@ function DeleteGroup(){
 		groupmember: GroupMember,
 		submit: "AddDevicetoGroup"
 	}
-	$.post("/golang",
+	$.post("http://172.21.73.144:9090",
 	postdata,
 	function(data,status){
 	
@@ -1074,7 +1074,7 @@ function UpdateDevicesStatus(id,stat){
 		submit: "SetDevicesStatus"
 		
 	}
-	$.post("/golang",
+	$.post("http://172.21.73.144:9090",
 	postdata,
 	function(data,status){
 	

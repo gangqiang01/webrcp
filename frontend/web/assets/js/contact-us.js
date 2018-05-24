@@ -25,7 +25,7 @@ function GetQuestion(){
 		type: "question",
 		submit: sub
 	}
-	$.post("/golang",
+	$.post("http://172.21.73.144:9090",
 	postdata,
 	function(data,status){
 		AllQuestion = data;
@@ -85,7 +85,7 @@ function SetQuestion(){
 			status: "true",
 			submit: sub
 	}
-	$.post("/golang",
+	$.post("http://172.21.73.144:9090",
 	postdata,
 	function(data,status){
 		document.getElementById("content").value = '';
@@ -141,7 +141,7 @@ function QuestionSelected(){
 			status: "true",
 			submit: sub
 		}
-		$.post("/golang",
+		$.post("http://172.21.73.144:9090",
 		postdata,
 		function(data,status){
 			document.getElementById("txtReply").value = '';

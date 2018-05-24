@@ -100,7 +100,7 @@ function BindUser(deviceid){
         name: getCookie("UserName"),   
 		submit: "GetUserByCompany"
 	}
-	$.post("/golang",
+	$.post("http://172.21.73.144:9090",
 	postdata,
 	function(data,status){
         console.log(data);
@@ -124,7 +124,7 @@ function BindUser(deviceid){
 				deviceid: deviceid,
 				submit: "DeviceBindUser"
 			}
-			$.post("/golang",
+			$.post("http://172.21.73.144:9090",
 			postdata,
 			function(data,status){
                 console.log(data);
@@ -141,7 +141,7 @@ function UnbindUser(deviceid){
         deviceid: deviceid,
         submit: "DeviceBindUser"
     }
-    $.post("/golang",
+    $.post("http://172.21.73.144:9090",
     postdata,
     function(data,status){
         console.log(data);
@@ -409,7 +409,7 @@ $.getJSON( type, function( data ) {
 	}
 		
 	
-	$.post("/golang",
+	$.post("http://172.21.73.144:9090",
 	postdata,
 	function(data,status){
 		var scores = []; 
@@ -582,7 +582,7 @@ function GetLogInfo(days){
 		}
 
 
-		$.post("/golang",
+		$.post("http://172.21.73.144:9090",
 		postdata,
 		function(data,status){
 			if(data !== undefined){
@@ -804,7 +804,7 @@ function SendCommand(sub){
 		}
 			
 
-		$.post("/golang",
+		$.post("http://172.21.73.144:9090",
 		postdata,
 		function(data,status){
 			var scores = []; 
@@ -985,7 +985,7 @@ function SetDeviceName(id, devicevalue){
 		devicename: devicevalue,
 		submit: "SetDeviceName"
 	}
-	$.post("/golang",
+	$.post("http://172.21.73.144:9090",
 	postdata,
 	function(data,status){
 			GetAllDevices();
@@ -1013,7 +1013,7 @@ function AddNewDevice(){
 			deviceid: document.getElementById("txtDeviceName").value,
 			submit: "GetDeviceId"
 		}
-		$.post("/golang",
+		$.post("http://172.21.73.144:9090",
 		postdata,
 		function(data,status){
 			document.getElementById("result").innerHTML = "";
@@ -1048,7 +1048,7 @@ function AddNewDevice(){
 			subscribe: subscribe,
 			submit: "SetSubscribeDevices"
 		}
-		$.post("/golang",
+		$.post("http://172.21.73.144:9090",
 		postdata,
 		function(data,status){
 			if (data === "success"){
@@ -1072,7 +1072,7 @@ function Unsubscribe(topic){
 		unsubscribe: unsubscribe,
 		submit: "UnsubscribeDevices"
 	}
-		$.post("/golang",
+		$.post("http://172.21.73.144:9090",
 		postdata,
 		function(data,status){
 			if (data === "success"){
@@ -1220,7 +1220,7 @@ function GetAllDevices() {
 			   submit: "GetAllDevices"
 		}
 
-		$.post("/golang",
+		$.post("http://172.21.73.144:9090",
 		postdata,
 		function(data,status){
 			if(!jQuery.isEmptyObject(ProfileInfo)){
@@ -1297,7 +1297,7 @@ function AddToGroup(){
 		name: getCookie("UserName"),
 		submit: "GetGroupInfo"
 	}
-	$.post("/golang",
+	$.post("http://172.21.73.144:9090",
 	postdata,
 	function(data,status){
 		var Title = "Set device group"
@@ -1321,7 +1321,7 @@ function AddToGroup(){
 				groupinfo: myJSON,
 				submit: "AddGroup"
 			}
-			$.post("/golang",
+			$.post("http://172.21.73.144:9090",
 			postdata,
 			function(data,status){
 				GetAllDevices();
@@ -1438,7 +1438,7 @@ function EditGroup(){
 		name: getCookie("UserName"),
 		submit: "GetGroupInfo"
 	}
-	$.post("/golang",
+	$.post("http://172.21.73.144:9090",
 	postdata,
 	function(data,status){
 		var Title = "Set device group"
@@ -1461,7 +1461,7 @@ function EditGroup(){
 				groupinfo: myJSON,
 				submit: "AddGroup"
 			}
-			$.post("/golang",
+			$.post("http://172.21.73.144:9090",
 			postdata,
 			function(data,status){
 				GetAllDevices();
@@ -1658,7 +1658,7 @@ function DeleteGroup(){
 		groupmember: GroupMember,
 		submit: "AddDevicetoGroup"
 	}
-	$.post("/golang",
+	$.post("http://172.21.73.144:9090",
 	postdata,
 	function(data,status){
 	
@@ -1681,7 +1681,7 @@ function UpdateDevicesStatus(id,stat){
 		submit: "SetDevicesStatus"
 		
 	}
-	$.post("/golang",
+	$.post("http://172.21.73.144:9090",
 	postdata,
 	function(data,status){
 	

@@ -124,7 +124,7 @@ function LoadJsonFile() {
 			name: getCookie("UserName"),
 			submit: "GetAllDevices"
 		}
-		$.post("/golang",
+		$.post("http://172.21.73.144:9090",
 		postdata,
 		function(data,status){
 			for(var i=0;i<Object.keys(data).length;i++){
@@ -391,7 +391,7 @@ function EditSchedule(data){
 		scheduleid: scheduleid,
 		submit: "GetScheduleById"
 	}
-	$.post("/golang",
+	$.post("http://172.21.73.144:9090",
 	postdata,
 	function(data,status){
 		console.log(data);
@@ -461,7 +461,7 @@ function DeleteSchedule(data){
 		scheduleid: scheduleid,
 		submit: "DeleteSchedule"
 	}
-	$.post("/golang",
+	$.post("http://172.21.73.144:9090",
 	postdata,
 	function(data,status){
 		var Title = "Success Message!"

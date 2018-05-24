@@ -31,7 +31,7 @@ var myObj = "";
 function LoadJsonFile() {
 	$.getJSON( type, function( data ) {
 		myObj = data;
-		SetHTML("barset_display");
+		SetHTML("barset_appcontrol");
 		GetAllDevices();
 		//$("#appFilter").html(filter).selectpicker('refresh');
 		var filter = [];
@@ -104,7 +104,7 @@ function GetAllDevices(){
 		name: name,
 		submit: sub
 	}
-	$.post("/golang",
+	$.post("http://172.21.73.144:9090",
 	postdata,
 	function(data,status){
 		if(data === "DeviceNotFound"){

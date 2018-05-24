@@ -105,7 +105,7 @@ function multiDeleteAccount(){
 				name: UserName,
 				submit: sub
 			}
-			$.post("/golang",
+			$.post("http://172.21.73.144:9090",
 			postdata,
 			function(data,status){
 			});
@@ -137,7 +137,7 @@ function PermissionSwitch(UserCompany, UserName, numPermission, status){
 		number: numPermission,
 		submit: sub
 	}
-	$.post("/golang",
+	$.post("http://172.21.73.144:9090",
 		postdata,
 		function(data,status){
 			if (data !== "PermissionFail")
@@ -163,7 +163,7 @@ function SetUserDuedate(){
 				date: DateToUnix(d),
 				submit: sub
 			}
-			$.post("/golang",
+			$.post("http://172.21.73.144:9090",
 				postdata,
 				function(data,status){
 					GetAllAccount();
@@ -182,7 +182,7 @@ function GetAllAccount() {
 			name: UserName,
 			submit: sub
 	}
-	$.post("/golang",
+	$.post("http://172.21.73.144:9090",
 	postdata,
 	function(data,status){
 		var EachUser = data.split("***");
