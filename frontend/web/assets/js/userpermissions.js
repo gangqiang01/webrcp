@@ -592,7 +592,7 @@ function SetNavbar(){
 					'</a>'+
 					
 					'<ul class="nav navbar-nav navbar-right"  id="menu-top">'+
-                        '<li><a id="barset_management" href="AllDevice.html">Device Managemnet</a></li>'+
+                        '<li><a id="barset_management" href="AllDevice.html">Device Management</a></li>'+
                         '<li><a id="barset_appcontrol" href="appcontrol.html">App Control</a></li>'+
                         '<li><a id="barset_devicemonitor" href="devicemonitor.html">System Monitor</a></li>'+
                         '<li><a id="barset_devicesecurity" href="devicesecurity.html">Device Security</a></a></li>'+
@@ -602,7 +602,7 @@ function SetNavbar(){
 							
 							'<div class="card dropdown-menu" id="card">'+
 								'<div class="card-pic">'+
-								'<img src="/assets/img/face_black.png" style="width:120px;">'+
+								'<img src="assets/img/face_black.png" style="width:120px;">'+
 								'</div>'+
 								'<div class="card-info">'+
 									'<div class="card-name" id="card-name">'+

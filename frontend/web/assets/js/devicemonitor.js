@@ -3,68 +3,8 @@ var myObj = "";
 //onload page
 $(function() {
 	LoginStatus("UserDuedateCheck","devicemonitor.html"); 
-	
     LoadJsonFile();
-    
-    $("#ssienableone").change(function(){
-        var cid = $(this).attr("id");
-        var selecteddid = getselecteddid(cid)
-        if(selecteddid == false){
-            return 
-        }
-
-        var checked = $(this).prop('checked');
-        var SSIDName = $("#wifiblockone").val().trim();
-        if(checked){
-            SendByGolang(selecteddid+"/", GetCommand(29, "Comm")+"@%@"+GetCommand(29, "Path")+"@%@;;;"+'add;;4:'+SSIDName+':1', GetCommand(29, "CommTitle"), "Allow", "user");
-        }else{
-            var msg = "Make sure this SSID is added to the blacklist?"
-            if(confirm(msg)){
-                 SendByGolang(selecteddid+"/", GetCommand(30, "Comm")+"@%@"+GetCommand(30, "Path")+"@%@;;;"+'add;;4:'+SSIDName+':0', GetCommand(30, "CommTitle"), "Deny", "user");
-            }else{
-                 $("#ssienableone").bootstrapToggle('on');
-            }
-        }
-    })
-
-    $("#ssienabletwo").change(function(){
-        var cid = $(this).attr("id");
-        var selecteddid = getselecteddid(cid)
-        if(selecteddid == false){
-            return 
-        }
-        var checked = $(this).prop('checked');
-        var SSIDName = $("#wifiblocktwo").val().trim();
-        if(checked){
-            SendByGolang(selecteddid+"/", GetCommand(29, "Comm")+"@%@"+GetCommand(29, "Path")+"@%@;;;"+'add;;4:'+SSIDName+':1', GetCommand(29, "CommTitle"), "Allow", "user");
-        }else{   
-            var msg = "Make sure this SSID is added to the blacklist?"
-            if(confirm(msg)){
-                SendByGolang(selecteddid+"/", GetCommand(30, "Comm")+"@%@"+GetCommand(30, "Path")+"@%@;;;"+'add;;4:'+SSIDName+':0', GetCommand(30, "CommTitle"), "Deny", "user");
-            }else{
-                 $("#ssienabletwo").bootstrapToggle('on');
-            }
-
-        }
-    })
-
-    
 });
-
-function getselecteddid(cid){
-    if(cid == "ssienableone"){
-        var devobj = document.getElementById("devIdone");
-        
-    }else if(cid == "ssienabletwo"){
-        var devobj = document.getElementById("devIdtwo");
-    }
-    var selecteddid = devobj.options[devobj.selectedIndex].getAttribute("data-subtext")
-    if(selecteddid === null || selecteddid == "" || selecteddid == undefined){
-        return false;
-    }
-    selecteddid = $.trim(selecteddid);
-    return selecteddid;
-}
 
 var company = localStorage.getItem("Company");	var type="";
 if(company === "Guest"){
@@ -73,11 +13,35 @@ if(company === "Guest"){
 	type = "assets/json/pro.txt";
 }
 
+function updatedevice(){
+    var company = localStorage.getItem("Company");
+	var name = getCookie('UserName');
+	postdata = {
+		company: company,
+		name: name,
+		submit: "GetAllDevices"
+	}
+	$.post("http://172.21.73.144:9090",
+	postdata,
+	function(data,status){
+		if(data === "DeviceNotFound"){
+		}else{
+            var GetUpdateDevice = "";
+            for(var i=0;i<Object.keys(data).length;i++){
+                deviceid = data[i].DEVICEID;
+                GetUpdateDevice += deviceid +"/";
+            }
+            SendByGolang(GetUpdateDevice, GetCommand(1, "Comm"), GetCommand(1, "Comm"), "", "system");
+		}
+	});
+}
+
 var myObj = "";
 function LoadJsonFile() {
 	$.getJSON( type, function( data ) {
 		myObj = data;
-		SetHTML("barset_devicemonitor");
+        SetHTML("barset_devicemonitor");
+        updatedevice()
 		GetAllDevices();
 		//$("#appFilter").html(filter).selectpicker('refresh');
 		var filter = [];
@@ -97,7 +61,24 @@ function GetDeviceDetails(deviceid,cid){
         selectedDeviceIdtwo = deviceid;
     }	
     SendByGolang(deviceid+"/", GetCommand(102, "Comm")+"@%@"+GetCommand(102, "Path")+"@%@;;;"+GetCommand(102, "Param"), GetCommand(102, "CommTitle"), "Wifi", "system");
-	// device management
+    // device management
+    
+    var sub = "GetDeviceDetails"; var postdata = {submit: sub};
+	var company = localStorage.getItem("Company");
+	var name = getCookie('UserName');
+	postdata = {
+		company: company,
+		name: name,
+		deviceid: deviceid,
+		submit: sub
+	}
+	$.post("http://172.21.73.144:9090",
+	postdata,
+	function(data,status){
+		if(!jQuery.isEmptyObject(data)){
+            document.getElementById('os'+cid).value = data[0].AGENTVERSION;
+		}
+	});
 }
 
 function UpdateDone(deviceid){

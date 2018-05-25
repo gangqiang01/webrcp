@@ -20,6 +20,30 @@ $(function() {
         }
     })
 });
+
+function updatedevice(){
+    var company = localStorage.getItem("Company");
+	var name = getCookie('UserName');
+	postdata = {
+		company: company,
+		name: name,
+		submit: "GetAllDevices"
+	}
+	$.post("http://172.21.73.144:9090",
+	postdata,
+	function(data,status){
+		if(data === "DeviceNotFound"){
+		}else{
+            var GetUpdateDevice = "";
+            for(var i=0;i<Object.keys(data).length;i++){
+                deviceid = data[i].DEVICEID;
+                GetUpdateDevice += deviceid +"/";
+            }
+            SendByGolang(GetUpdateDevice, GetCommand(1, "Comm"), GetCommand(1, "Comm"), "", "system");
+		}
+	});
+}
+
 var company = localStorage.getItem("Company");	var type="";
 if(company === "Guest"){
 	type = "assets/json/lite.txt";
@@ -31,7 +55,8 @@ var myObj = "";
 function LoadJsonFile() {
 	$.getJSON( type, function( data ) {
 		myObj = data;
-		SetHTML("barset_appcontrol");
+        SetHTML("barset_appcontrol");
+        updatedevice();
 		GetAllDevices();
 		//$("#appFilter").html(filter).selectpicker('refresh');
 		var filter = [];
@@ -199,8 +224,9 @@ function ChangeIdtoName(data, id){
 
 function installapp(cid){ 
         var selecteddid = getselecteddid(cid)
-        if(selecteddid == false){
-            return 
+        if(!selecteddid){
+            swal("","Please select your device","info")
+            return;
         }
         var appid = $("#applist"+cid).val();
         var select = document.getElementById("applist"+cid);
@@ -232,8 +258,9 @@ function getselecteddid(cid){
 
 function uninstallapp(cid){
         var selecteddid = getselecteddid(cid)
-        if(selecteddid == false){
-            return 
+        if(!selecteddid){
+            swal("","Please select your device","info")
+            return;
         }
         var appid = $("#appinstalled"+cid).val();
         if(appid != null)
@@ -255,8 +282,9 @@ function uninstallapp(cid){
 
 function lanunchapp(cid){
     var selecteddid = getselecteddid(cid)
-    if(selecteddid == false){
-        return 
+    if(!selecteddid){
+        swal("","Please select your device","info")
+        return;
     }
     var appid = $("#lanunch"+cid).val();
     var msg = $("#message"+cid).val().trim();

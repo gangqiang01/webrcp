@@ -388,7 +388,7 @@ function onMessageArrived(message) {
 			if(RSSIInfo.Bluetooth != null){
 				SetDeviceInfo(MessageReceived[0],"bluetooth", JSON.parse(MessageReceived[1]));
 			}
-		}else if(location.pathname.indexOf('wificontrol.html')> -1){
+		}else if(location.pathname.indexOf('devicemonitor.html')> -1){
             if(RSSIInfo.WiFi != null){
 				SetDeviceInfo(MessageReceived[0],"wifi", JSON.parse(MessageReceived[1]));
 			}
