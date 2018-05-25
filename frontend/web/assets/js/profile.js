@@ -81,7 +81,7 @@ function SendPhone(){
 			phone: phone,
 			submit: "SetPhone"
 	}
-	$.post("http://172.21.73.144:9090",
+	$.post("/golang",
 	postdata,
 		function(data,status){
 			if(data === "pass"){
@@ -100,7 +100,7 @@ function SendEmail(){
 			email: email,
 			submit: "SendVerifyEmail"
 	}
-	$.post("http://172.21.73.144:9090",
+	$.post("/golang",
 	postdata,
 		function(data,status){
 			if(data === "pass"){
@@ -148,7 +148,7 @@ function DeleteAccount(){
 				name: UserName,
 				submit: sub
 		}
-		$.post("http://172.21.73.144:9090",
+		$.post("/golang",
 		postdata,
 		function(data,status){
 			if(data === "pass"){

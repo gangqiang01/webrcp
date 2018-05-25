@@ -416,7 +416,7 @@ function SendByGolang(value_topic ,value_msg, command_msg, value_command, comman
 		submit: "SendByGolang"
 	}
 
-	$.post("http://172.21.73.144:9090",
+	$.post("/golang",
 	postdata,
 	function(data,status){
 		if(data !== undefined){
@@ -456,7 +456,7 @@ function NewSendByGolang(value_topic ,value_comm, value_path, value_param, comma
 		commandfrom: command_from,
 		submit: "NewSendByGolang"
 	}
-	$.post("http://172.21.73.144:9090",
+	$.post("/golang",
 	postdata,
 	function(data,status){
 		

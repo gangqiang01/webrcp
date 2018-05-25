@@ -67,7 +67,7 @@ function drawData(data) {
 	}
 		
 	var datatimes;
-	$.post("http://172.21.73.144:9090",
+	$.post("/golang",
 	postdata,
 	function(data,status){
 		var scores = []; 
@@ -473,7 +473,7 @@ function GetLogInfo(days){
 		}
 
 
-		$.post("http://172.21.73.144:9090",
+		$.post("/golang",
 		postdata,
 		function(data,status){
 			if(data !== undefined){

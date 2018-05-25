@@ -48,7 +48,7 @@ calendar //you will need to declare your module with the dependencies ['mwl.cale
 		company: localStorage.getItem("Company"),
 		submit: "GetSchedule"
 	}
-	$.post("http://172.21.73.144:9090",
+	$.post("/golang",
 	postdata,
 	function(data,status){
 		console.log(data);
@@ -255,7 +255,7 @@ calendar //you will need to declare your module with the dependencies ['mwl.cale
 					stat: "true",
 					submit: "SetSchedule"
 				}
-				$.post("http://172.21.73.144:9090",
+				$.post("/golang",
 				postdata,
 				function(data,status){
 				
@@ -313,7 +313,7 @@ calendar //you will need to declare your module with the dependencies ['mwl.cale
 					stat: "true",
 					submit: "EditSchedule"
 				}
-				$.post("http://172.21.73.144:9090",
+				$.post("/golang",
 				postdata,
 				function(data,status){
 				

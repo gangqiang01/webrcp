@@ -10,7 +10,7 @@ $(function() {
 				company: company,
 				submit: "ResetPassword"
 		   }
-		$.post("http://172.21.73.144:9090",
+		$.post("/golang",
 		postdata,
 		function(data,status){
 			var ss = data.split("/");
@@ -36,7 +36,7 @@ function submitDB(sub) {
 			company: document.getElementById("Company").value,
 			submit: sub
 		}
-		$.post("http://172.21.73.144:9090",
+		$.post("/golang",
 		postdata,
 		function(data,status){
 			var ss = data.split("/");
@@ -92,7 +92,7 @@ function submitDB(sub) {
 					company: document.getElementById("CompanyName").value,
 					submit: sub
 			}
-			$.post("http://172.21.73.144:9090",
+			$.post("/golang",
 		postdata,
 		function(data,status){
 	
@@ -121,7 +121,7 @@ function submitDB(sub) {
 					level: "3",
 					submit: sub
 			}
-			$.post("http://172.21.73.144:9090",
+			$.post("/golang",
 		postdata,
 		function(data,status){
 			document.getElementById("SignUpLoading").style.display="none";
@@ -147,7 +147,7 @@ function submitDB(sub) {
 					verification: document.getElementById("Verification").value,
 					submit: sub
 			}
-			$.post("http://172.21.73.144:9090",
+			$.post("/golang",
 		postdata,
 		function(data,status){
 	
@@ -168,7 +168,7 @@ function submitDB(sub) {
 						password: document.getElementById("RPasswordAgain").value,
 						submit: sub
 				}
-				$.post("http://172.21.73.144:9090",
+				$.post("/golang",
 			postdata,
 			function(data,status){
 		
@@ -320,7 +320,7 @@ function Verified(UserName, UserCompany){
 					company: UserCompany,
 					submit: sub
 			}
-			$.post("http://172.21.73.144:9090",
+			$.post("/golang",
 		postdata,
 		function(data,status){
 	
@@ -362,7 +362,7 @@ function ResetPassword(){
 		company: document.getElementById("Company").value,
 		submit: sub
 	}
-	$.post("http://172.21.73.144:9090",
+	$.post("/golang",
 	postdata,
 	function(data,status){
 		console.log(data);
@@ -397,7 +397,7 @@ function ResendVerifyMail(UserName, UserCompany){
 					company: UserCompany,
 					submit: sub
 			}
-			$.post("http://172.21.73.144:9090",
+			$.post("/golang",
 		postdata,
 		function(data,status){
 	

@@ -21,7 +21,7 @@ function updatedevice(){
 		name: name,
 		submit: "GetAllDevices"
 	}
-	$.post("http://172.21.73.144:9090",
+	$.post("/golang",
 	postdata,
 	function(data,status){
 		if(data === "DeviceNotFound"){
@@ -72,7 +72,7 @@ function GetDeviceDetails(deviceid,cid){
 	// 	deviceid: deviceid,
 	// 	submit: sub
 	// }
-	// $.post("http://172.21.73.144:9090",
+	// $.post("/golang",
 	// postdata,
 	// function(data,status){
 	// 	if(!jQuery.isEmptyObject(data)){
@@ -125,7 +125,7 @@ function GetAllDevices(){
 		name: name,
 		submit: sub
 	}
-	$.post("http://172.21.73.144:9090",
+	$.post("/golang",
 	postdata,
 	function(data,status){
 		if(data === "DeviceNotFound"){

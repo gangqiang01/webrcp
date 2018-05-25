@@ -13,7 +13,7 @@ function LoginStatus(sub, page) {
 				company: company,
 				submit: sub
 		}
-		$.post("http://172.21.73.144:9090",
+		$.post("/golang",
 		postdata,
 			function(data,status){
 				if(data === "timeout"){
@@ -142,7 +142,7 @@ function SetHTML(html){
 			name: UserName,
 			submit: sub
 	}
-	$.post("http://172.21.73.144:9090",
+	$.post("/golang",
 	postdata,
 	function(data,status){
 		ProfileInfo = data;
@@ -192,7 +192,7 @@ function SetHTML(html){
 			days: 3,
 			submit: sub
 	}
-	$.post("http://172.21.73.144:9090",
+	$.post("/golang",
 	postdata,
 	function(data,status){
 		if(data !== undefined){
@@ -223,7 +223,7 @@ function SetHTML(html){
 			name: UserName,
 			submit: sub
 	}
-	$.post("http://172.21.73.144:9090",
+	$.post("/golang",
 	postdata,
 	function(data,status){
 		if(company === "Guest"){
@@ -357,7 +357,7 @@ function SetSubscribe(device, value){
 				subscribe: subscribe, 
 				submit: "SetSubscribeDevices"
 		}
-		$.post("http://172.21.73.144:9090",
+		$.post("/golang",
 		postdata,
 			function(data,status){
 				if(data === "success"){
@@ -386,7 +386,7 @@ function SetSubscribe(device, value){
 			stat: value,
 			submit: "Uninviter"
 	}
-	$.post("http://172.21.73.144:9090",
+	$.post("/golang",
 	postdata1,
 		function(data,status){
 			if(data === "success"){
@@ -451,7 +451,7 @@ function GetLogDetailById(id){
 			logid: id,
 			submit: "GetLogInfoById"
 	}
-	$.post("http://172.21.73.144:9090",
+	$.post("/golang",
 	postdata,
 		function(data,status){
 			if(data !== undefined){
@@ -561,7 +561,7 @@ function SetLogsView(id){
 			id: id,
 			submit: "SetLogView"
 	}
-	$.post("http://172.21.73.144:9090",
+	$.post("/golang",
 	postdata,
 		function(data,status){
 			$( "button[onclick*='"+id+"']").parent( ".notification_content-button" ).parent( ".notification_content" ).remove();

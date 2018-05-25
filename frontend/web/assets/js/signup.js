@@ -10,7 +10,7 @@ $(function() {
 			company: company,
 			submit: "GetLevel"
 	}
-	$.post("http://172.21.73.144:9090",
+	$.post("/golang",
 	postdata,
 		function(data,status){
 			if(data === "1"){
@@ -40,7 +40,7 @@ function SendtoDatatable(){
 				level:	UserLevel,
 				submit: "AddNewUser"
 		}
-		$.post("http://172.21.73.144:9090",
+		$.post("/golang",
 	postdata,
 	function(data,status){
 		document.getElementById("SignUpLoading").style.display="none";
