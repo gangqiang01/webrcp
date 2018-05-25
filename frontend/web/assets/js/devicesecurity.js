@@ -40,11 +40,11 @@ function lockdevice(cid){
     var newpassword = $("#newpwd"+cid).val();
     var reg = /^[0-9]+$/
     if(!reg.test(newpassword)){
-        swal("", "The lock password must be number and not empty", "error");
+        swal("", "The lock password must be number and not empty", "info");
         return;
     }else{
         swal({
-            title: "Please remember your new password",
+            title: "remember new password",
             text: "Once lock device, you only unlock by new password",
             icon: "warning",
             buttons: true,
@@ -66,7 +66,7 @@ function factory(cid){
     }
     swal({
         title: "Are you sure?",
-        text: "Once Factory Reset, you will lose all the data of your device!",
+        text: "Once Factory Reset,all information in device will lose",
         icon: "warning",
         buttons: true,
         dangerMode: true,
@@ -255,7 +255,14 @@ function GetDevicesId(data){
     if(tmpCheck)
         $('#devIdtwo').selectpicker('val', ChangeIdtoName(data, getDevice));
 }
-
+function ChangeNametoId(data, name){
+	for(var i=0;i<Object.keys(data).length;i++){
+		if(data[i][1] === name){
+			return data[i][0];
+		}
+	}
+	return false;
+}
 
 function GetCommand(number, title){
 	var str = ""+number+""; 

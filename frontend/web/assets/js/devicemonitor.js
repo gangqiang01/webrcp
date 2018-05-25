@@ -63,22 +63,22 @@ function GetDeviceDetails(deviceid,cid){
     SendByGolang(deviceid+"/", GetCommand(102, "Comm")+"@%@"+GetCommand(102, "Path")+"@%@;;;"+GetCommand(102, "Param"), GetCommand(102, "CommTitle"), "Wifi", "system");
     // device management
     
-    var sub = "GetDeviceDetails"; var postdata = {submit: sub};
-	var company = localStorage.getItem("Company");
-	var name = getCookie('UserName');
-	postdata = {
-		company: company,
-		name: name,
-		deviceid: deviceid,
-		submit: sub
-	}
-	$.post("http://172.21.73.144:9090",
-	postdata,
-	function(data,status){
-		if(!jQuery.isEmptyObject(data)){
-            document.getElementById('os'+cid).value = data[0].AGENTVERSION;
-		}
-	});
+    // var sub = "GetDeviceDetails"; var postdata = {submit: sub};
+	// var company = localStorage.getItem("Company");
+	// var name = getCookie('UserName');
+	// postdata = {
+	// 	company: company,
+	// 	name: name,
+	// 	deviceid: deviceid,
+	// 	submit: sub
+	// }
+	// $.post("http://172.21.73.144:9090",
+	// postdata,
+	// function(data,status){
+	// 	if(!jQuery.isEmptyObject(data)){
+            document.getElementById('os'+cid).value = "6.0";
+	// 	}
+	// });
 }
 
 function UpdateDone(deviceid){

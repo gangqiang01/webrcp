@@ -96,9 +96,10 @@
                     <div class="col-md-10 col-md-offset-1 control-label form-group">
                         <label for="basic" class="col-lg-3 control-label"><i class="fa fa-paper-plane" style="margin-right:10px;color:#428bca"></i>Message:</label>
                         <div class="col-lg-7">
-                            <input id="messageone" class="show-tick form-control" placeholder="Please save a message before Launch app or uninstall app"/>
-                            <span id="launchalertone" style="color:brown;margin-left:3px;display:none">Please save a message to be send before Launch app </span>
-                            <span id="uninstallalertone" style="color:brown;margin-left:3px;display:none">Please save a message to be send before uninstall app </span>
+                            <input id="messageone" class="show-tick form-control" placeholder="Please save a message to be send to your device"/>
+                        </div>
+                        <div class="col-md-2">
+                                <a class="btn btn-primary" onclick="sendmessage('one')">Run</a>
                         </div>
                     </div>
                 </div>
@@ -154,7 +155,7 @@
                                 </select>
                             </div>
                             <div class="col-md-2">
-                                    <a class="btn btn-primary" onclick="lanunchapp('two')">Run</a>
+                                <a class="btn btn-primary" onclick="lanunchapp('two')">Run</a>
                             </div>
                         </div>
                     </div>
@@ -162,9 +163,10 @@
                         <div class="col-md-10 col-md-offset-1 control-label form-group">
                             <label for="basic" class="col-lg-3 control-label"><i class="fa fa-paper-plane" style="margin-right:10px;color:#428bca"></i>Message:</label>
                             <div class="col-lg-7">
-                                <input id="messagetwo" class="selectpicker show-tick form-control" placeholder="Please save a message before Launch app or uninstall app"/>
-                                <span id="launchalerttwo" style="color:brown;margin-left:3px;display:none">Please save a message to be send before Launch app </span>
-                                <span id="uninstallalerttwo" style="color:brown;margin-left:3px;display:none">Please save a message to be send before uninstall app </span>
+                                <input id="messagetwo" class="selectpicker show-tick form-control" placeholder="Please save a message to be send to your device"/>
+                            </div>
+                            <div class="col-md-2">
+                                <a class="btn btn-primary" onclick="sendmessage('two')">Run</a>
                             </div>
                         </div>
                     </div>

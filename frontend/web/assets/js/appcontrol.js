@@ -6,19 +6,6 @@ $(function() {
 	LoginStatus("UserDuedateCheck","appcontrol.html"); 
 	
     LoadJsonFile();
-    $("#messageone").on("change", function(){
-        if($(this).val().trim().length != 0){
-            $("#uninstallalertone").hide();
-            $("#launchalertone").hide();
-        }        
-    })
-
-    $("#messagetwo").on("change", function(){
-        if($(this).val().trim().length != 0){
-            $("#uninstallalerttwo").hide();
-            $("#launchalerttwo").hide();
-        }
-    })
 });
 
 function updatedevice(){
@@ -265,16 +252,6 @@ function uninstallapp(cid){
         var appid = $("#appinstalled"+cid).val();
         if(appid != null)
         appid = appid.trim();
-        var msg = $("#message"+cid).val().trim();
-        if(msg == ""){
-            $("#uninstallalert"+cid).show();
-            $("#launchalert"+cid).hide();
-            return;
-        }else{
-            $("#uninstallalert"+cid).hide();
-            $("#launchalert"+cid).hide();
-        }
-        SendByGolang(selecteddid+"/", GetCommand(53, "Comm")+";;;"+msg, GetCommand(53, "Comm"), msg, "user")
         SendByGolang(selecteddid+"/", GetCommand(9, "Comm")+"@%@;;;"+appid, GetCommand(9, "CommTitle"), appid, "user");
         GetDeviceDetails(selecteddid,cid)
         UpdateDone(selecteddid)
@@ -287,37 +264,24 @@ function lanunchapp(cid){
         return;
     }
     var appid = $("#lanunch"+cid).val();
-    var msg = $("#message"+cid).val().trim();
-    if(msg == ""){
-        $("#uninstallalert"+cid).hide();
-        $("#launchalert"+cid).show();
-        return;
-    }else{
-        $("#uninstallalert"+cid).hide();
-        $("#launchalert"+cid).hide();
-    }
     if(appid != null)
     appid = appid.trim();
-    SendByGolang(selecteddid+"/", GetCommand(53, "Comm")+";;;"+msg, GetCommand(53, "Comm"), msg, "user")
     SendByGolang(selecteddid+"/", GetCommand(10, "Comm")+"@%@"+appid, GetCommand(10, "CommTitle"), appid, "user");		
     UpdateDone(selecteddid)
 }
 
-function addmessage(e,cid){
-    var appid = e.options[e.selectedIndex].text;
-    if(cid == "launch_one"){
-        var msg =appid+" will run";
-        $("#messageone").val(msg);
-    }else　if(cid == "launch_two"){
-        var msg =appid+" will run";
-        $("#messagetwo").val(msg)
-    }else if(cid == "uninstall_one"){
-        var msg =appid+" will uninstall";
-        $("#messageone").val(msg);
-    }else if(cid == "uninstall_two"){
-        var msg =appid+" will uninstall";
-        $("#messagetwo").val(msg)
+function sendmessage(cid){
+    var selecteddid = getselecteddid(cid)
+    if(!selecteddid){
+        swal("","Please select your device","info")
+        return;
     }
+    var msg = $("#message"+cid).val().trim();
+    if(msg == ""){
+        swal("","The message sent to the device can not be empty","info")
+        return;
+    }
+    SendByGolang(selecteddid+"/", GetCommand(53, "Comm")+";;;"+msg, GetCommand(53, "Comm"), msg, "user")
 }
 //Get Json command to myObj
 //e.g. GetCommand(3,"CommTitle")
