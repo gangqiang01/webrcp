@@ -25,11 +25,22 @@
 	<script src="assets/js/jquery-1.10.2.js"></script>
 	<script src="assets/js/userpermissions.js" type='text/javascript'></script>
 	
-	
+    <script src="assets/js/aes.js"></script>
     <script language=JavaScript src="assets/mqtt/mqttws31.js"></script>
     <script src="assets/js/mqtt_client.js"></script>
 	<script src="assets/js/bootstrap-select.js"></script>
-	<script src="assets/js/appcontrol.js"></script>
+    <script src="assets/js/appcontrol.js"></script>
+    <style>
+        .img_message img{
+            width:150px;
+            margin:auto 0;
+        }
+
+        .img_message{
+            text-align: center;
+            margin-bottom:15px;
+        }
+    </style>
 </head>
 <body id="CookieListener">
 	<div class="navbar-fixed-top"></div>
@@ -41,7 +52,7 @@
             <div class="col-md-6" style="border-right:1px solid #ddd">
                 <div class="row" style="margin-bottom:60px">
                     <div class="col-md-12 " style="text-align:center">
-                        <i class="fa fa-tablet fa-5x"></i><br>
+                        <i class="fa fa-tablet fa-5x icon_fa_table"></i><br>
                         <select id="devIdone" class="selectpicker" data-width="fit" title="select device">
                             
                         </select>
@@ -53,7 +64,9 @@
                 </div>
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1  control-label form-group">
-                        <label for="basic" class="col-lg-3 control-label"><i class="fa fa-download" style="margin-right:10px;color:#428bca"></i>APP List:</label>
+                        <label for="basic" class="col-lg-3 control-label">
+                            <i class="fa fa-download" style="margin-right:10px;color:#428bca"></i>APP List:
+                        </label>
                         <div class="col-md-7">
                             <select id="applistone" class="show-tick form-control">
                                 <option value="">hello1.apk</option>
@@ -93,13 +106,18 @@
                     </div>
                 </div>
                 <div class="row">
+                    <div class="col-md-12  img_message">
+                        <img src="assets/img/Message.png" alt="">
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col-md-10 col-md-offset-1 control-label form-group">
                         <label for="basic" class="col-lg-3 control-label"><i class="fa fa-paper-plane" style="margin-right:10px;color:#428bca"></i>Message:</label>
                         <div class="col-lg-7">
                             <input id="messageone" class="show-tick form-control" placeholder="Please save a message to be send to your device"/>
                         </div>
                         <div class="col-md-2">
-                                <a class="btn btn-primary" onclick="sendmessage('one')">Run</a>
+                                <a class="btn btn-primary" onclick="sendmessage('one')">Send</a>
                         </div>
                     </div>
                 </div>
@@ -108,7 +126,7 @@
             <div class="col-md-6">
                 <div class="row" style="margin-bottom:60px">
                     <div class="col-md-12 " style="text-align:center">
-                        <i class="fa fa-tablet fa-5x"></i><br>
+                        <i class="fa fa-tablet fa-5x icon_fa_table"></i><br>
                         <select id="devIdtwo" class="selectpicker" data-width="fit" title="select device">
                             
                         </select>
@@ -160,13 +178,18 @@
                         </div>
                     </div>
                     <div class="row">
+                        <div class="col-md-12 img_message">
+                            <img src="assets/img/Message.png" alt="">
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-md-10 col-md-offset-1 control-label form-group">
                             <label for="basic" class="col-lg-3 control-label"><i class="fa fa-paper-plane" style="margin-right:10px;color:#428bca"></i>Message:</label>
                             <div class="col-lg-7">
                                 <input id="messagetwo" class="selectpicker show-tick form-control" placeholder="Please save a message to be send to your device"/>
                             </div>
                             <div class="col-md-2">
-                                <a class="btn btn-primary" onclick="sendmessage('two')">Run</a>
+                                <a class="btn btn-primary" onclick="sendmessage('two')">Send</a>
                             </div>
                         </div>
                     </div>
@@ -189,7 +212,7 @@
     </section>
     <script src="assets/js/bootstrap.js"></script>
 	<script src="assets/js/bootstrap-tagsinput.js"></script>
-    <script src="assets/js/aes.js"></script>
+
     <script src="assets/js/sweetalert.min.js"></script>
 </body>
 </html>

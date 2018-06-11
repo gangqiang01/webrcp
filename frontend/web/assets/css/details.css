@@ -76,10 +76,12 @@
  
 .bg-DarkRed{
   background-color: DarkRed;
+  opacity: 0.8;
 }
 
 .bg-DimGray{
   background-color: DimGray;
+  opacity: 0.8;
 }
 
 .bg-Indigo{
@@ -193,4 +195,8 @@ body {
 
 .table-app-management .fa-trash{
 	color: DarkRed;
+}
+
+.icon_fa_table{
+    color:#428bca
 }

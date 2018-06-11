@@ -32,7 +32,15 @@
 	<script src="assets/js/bootstrap-select.js"></script>
     <!-- <link href="assets/css/bootstrap-toggle.min.css" rel="stylesheet">
 	<script src="assets/js/bootstrap-toggle.min.js"></script> -->
-	<script src="assets/js/devicemonitor.js"></script>
+    <script src="assets/js/devicemonitor.js"></script>
+    <style>
+        .img_wireless img,.img_info img{
+            width:150px;
+        }
+        .img_wireless span.info-box-icon,.img_info span.info-box-icon{
+            padding-top:0 !important;
+        }
+    </style>
 </head>
 <body id="CookieListener">
 	<div class="navbar-fixed-top"></div>
@@ -44,7 +52,7 @@
             <div class="col-md-6" style="border-right:1px solid #ddd">
                 <div class="row" style="margin-bottom:60px">
                     <div class="col-md-12 " style="text-align:center">
-                        <i class="fa fa-tablet fa-5x"></i><br>
+                        <i class="fa fa-tablet fa-5x icon_fa_table"></i><br>
                         <select id="devIdone" class="selectpicker" data-width="fit" title="select device">
                             
                         </select>
@@ -58,10 +66,11 @@
                 </div>
                 <div class="row">
                         <div class="col-md-1"></div>
-                        <div class="col-md-2">
-                            <span class="info-box-icon bg-red">
-                                <i class="fa fa-android info-box-icon-white"></i>
-                                <p class="info-box-icon-title">System Info</p>
+                        <div class="col-md-2 img_info">
+                            <span class="info-box-icon bg-red img_info" >
+                                <!-- <i class="fa fa-android info-box-icon-white"></i>
+                                <p class="info-box-icon-title">System Info</p> -->
+                                <img src="assets/img/info.png" alt="">
                             </span>
                         </div>
                         <div class="col-md-9">
@@ -94,10 +103,11 @@
                     
                 <div class="row" style="margin-top:80px;">
                     <div class="col-md-1"></div>
-                    <div class="col-md-2">
-                        <span class="info-box-icon bg-aqua">
-                            <i class="fa fa-wifi info-box-icon-white"></i>
-                            <p class="info-box-icon-title">Wireless Info</p>
+                    <div class="col-md-2 img_wireless">
+                        <span class="info-box-icon bg-yellow ">
+                            <!-- <i class="fa fa-wifi info-box-icon-white"></i>
+                            <p class="info-box-icon-title">Wireless Info</p> -->
+                            <img src="assets/img/Wireless.png" alt="">
                         </span>
                     </div>
                     <div class="col-md-9">
@@ -141,7 +151,7 @@
             <div class="col-md-6">
                 <div class="row" style="margin-bottom:60px">
                     <div class="col-md-12 " style="text-align:center">
-                        <i class="fa fa-tablet fa-5x"></i><br>
+                        <i class="fa fa-tablet fa-5x icon_fa_table"></i><br>
                         <select id="devIdtwo" class="selectpicker" data-width="fit" title="select device">
                             
                         </select>
@@ -156,10 +166,11 @@
 
                 <div class="row">
                     <div class="col-md-1"></div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 img_info">
                         <span class="info-box-icon bg-red">
-                            <i class="fa fa-android info-box-icon-white"></i>
-                            <p class="info-box-icon-title">System Info</p>
+                            <!-- <i class="fa fa-android info-box-icon-white"></i>
+                            <p class="info-box-icon-title">System Info</p> -->
+                            <img src="assets/img/info.png" alt="">
                         </span>
                     </div>
                     <div class="col-md-9">
@@ -191,10 +202,11 @@
                 </div>
                 <div class="row" style="margin-top:80px;">
                     <div class="col-md-1"></div>
-                    <div class="col-md-2">
-                        <span class="info-box-icon bg-aqua">
-                            <i class="fa fa-wifi info-box-icon-white"></i>
-                            <p class="info-box-icon-title">Wireless Info</p>
+                    <div class="col-md-2 img_wireless">
+                        <span class="info-box-icon bg-yellow">
+                            <!-- <i class="fa fa-wifi info-box-icon-white"></i>
+                            <p class="info-box-icon-title">Wireless Info</p> -->
+                            <img src="assets/img/Wireless.png" alt="">
                         </span>
                     </div>
                     <div class="col-md-9">
