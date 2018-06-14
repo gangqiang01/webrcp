@@ -588,7 +588,7 @@ function SetNavbar(){
 				'<div class="navbar-header">'+
 					'<a class="navbar-brand" href="index.html">'+
 
-						'<img src="assets/img/adv_logo.png" style="width:240px;border-radius:5px"/>'+
+						'<img src="assets/img/adv_logo.png" style="width:240px;"/>'+
 					'</a>'+
 					
 					'<ul class="nav navbar-nav navbar-right"  id="menu-top">'+

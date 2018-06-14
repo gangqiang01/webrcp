@@ -20,8 +20,8 @@
   text-align: center;
   line-height: 40px;
   font-size: 45px;
-  background: rgba(0, 0, 0, 0.2);
   padding-top: 20px;
+  border-radius: 5px;
 }
 .info-box-icon > img {
   max-width: 100%;
@@ -69,7 +69,6 @@
 .bg-Cornsilk {
   background-color: Cornsilk;
 }
-
 .bg-DarkViolet{
   background-color: DarkViolet;
 }
@@ -99,7 +98,18 @@
 .bg-SteelBlue{
   background-color: SteelBlue;
 }
-
+.box-border-SteelBlue{
+    border:1px solid SteelBlue;
+}
+.box-border-Indigo{
+    border:1px solid Indigo;
+}
+.box-border-DarkRed{
+    border:1px solid DarkRed;
+}
+.box-border-green{
+    border:1px solid green;
+}
 .color-green{
   color: #00a65a;
 }	
