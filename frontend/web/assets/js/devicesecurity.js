@@ -136,7 +136,8 @@ function GetDeviceDetails(deviceid,cid){
     }else if(cid == "two"){
         selectedDeviceId = null;
         selectedDeviceIdtwo = deviceid;
-    }	
+    }
+    document.getElementById('orgpwd'+cid).value = "123456";	
 }
 
 function UpdateDone(deviceid){

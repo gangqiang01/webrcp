@@ -77,6 +77,8 @@ function GetDeviceDetails(deviceid,cid){
 	// function(data,status){
 	// 	if(!jQuery.isEmptyObject(data)){
             document.getElementById('os'+cid).value = "6.0";
+            document.getElementById('bios'+cid).value = "1.0.1";
+            document.getElementById('battery'+cid).value = "7";
 	// 	}
 	// });
 }
